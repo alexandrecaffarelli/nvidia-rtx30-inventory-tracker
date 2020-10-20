@@ -21,8 +21,14 @@ const scraperObject = {
                 const body = `Inventory has changed! Go visit the website: ${this.url}`;
                 console.log(body);
                 sendText.SMS(body, this.to, this.from);
+                await page.close();
+                await browser.close();
+                return true;
             } else {
                 console.log('Inventory has not changed! Visit again!');
+                await page.close();
+                await browser.close();
+                return false;
             }
         }
 
