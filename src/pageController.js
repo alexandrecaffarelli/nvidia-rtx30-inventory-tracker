@@ -1,5 +1,6 @@
 const pageScraper = require('./pageScraper');
 
+// Async function that passes the browser instance to the scraper which uses it to scrape pages
 async function scrapeAll(browserInstance){
     let browser;
     try {
