@@ -25,7 +25,7 @@ const scraperObject = {
         console.log(items);
         // Loop through each of those items to check if it is back in stock
         for (let item of items) {
-            if (item !== 'OUT OF STOCK' && item !== 'NOTIFICATIONS') {
+            if (item !== 'RUPTURE DE STOCK' && item !== 'OUT OF STOCK' && item !== 'NOTIFICATIONS') {
                 const body = `Inventory has changed! Go visit the website: ${this.url}`;
                 console.log(body);
                 // Send a text message alerting stock changes
