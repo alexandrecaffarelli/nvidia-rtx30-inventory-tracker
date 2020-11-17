@@ -16,9 +16,9 @@ const scraperObject = {
         // Wait for the required DOM to be rendered
         await page.waitForSelector('#mainCont');
         // Get the stock to all the required items (here NVIDIA RTX 3000 Series)
-        let items = await page.$$eval('.buy', stocks => {
+        let items = await page.$$eval('.buy-col-xl, .buy-col-lg', stocks => {
             // Extract the stock information from the data
-            stocks = stocks.map(el => el.querySelector('.featured-buy-link').innerText)
+            stocks = stocks.map(el => el.querySelector('.featured-buy-link, .buy-link').innerText)
             return stocks;
         });
         console.log(items.length);
@@ -35,16 +35,14 @@ const scraperObject = {
                 // Close the browser
                 await browser.close();
                 return;
-            } else {
-                console.log('Inventory has not changed! Visit again!');
-                // Close the page
-                await page.close();
-                // Close the browser
-                await browser.close();
-                return;
             }
         }
-
+        console.log('Inventory has not changed! Visit again!');
+        // Close the page
+        await page.close();
+        // Close the browser
+        await browser.close();
+        return;
     }
 }
 
