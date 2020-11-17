@@ -25,9 +25,9 @@ const scraperObject = {
         console.log(items);
         // Loop through each of those items to check if it is back in stock
         for (let item of items) {
-            if (item !== 'RUPTURE DE STOCK' && item !== 'OUT OF STOCK' && item !== 'NOTIFICATIONS' && item !== 'DISPONIBLE BIENTÔT' && item !== 'PROCHAINEMENT') {
+            console.log(item);
+            if (item !== 'RUPTURE DE STOCK' && item !== 'OUT OF STOCK' && item !== 'NOTIFICATIONS' && item !== 'DISPONIBLE BIENTÔT' && item !== 'PROCHAINEMENT' && item !== '') {
                 const body = `Inventory has changed! Go visit NVIDIA website!`;
-                console.log(body);
                 // Send a text message alerting stock changes
                 sendText.SMS(body, this.to, this.from);
                 // Close the page
