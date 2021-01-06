@@ -10,6 +10,8 @@ const scraperObject = {
     // Async method that performs the actual scraping
     async scraper(browser) {
         let page = await browser.newPage();
+        // Set user agent (override the default headless User Agent)
+        await page.setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36");
         console.log(`Navigating to ${this.url}...`);
         // Navigate to the selected page
         await page.goto(this.url);
